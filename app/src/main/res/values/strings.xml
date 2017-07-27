@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BlueToothClassic</string>
+    <string name="bluetooth_not_support">设备没有蓝牙功能</string>
+    <string name="waiting_connect">等待连接还剩余%s秒</string>
+</resources>
