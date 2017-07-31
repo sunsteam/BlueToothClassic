@@ -165,7 +165,13 @@ public class ServerSocketActivity extends AppCompatActivity {
                 if (socket != null) {
                     // Do work to manage the connection (in a separate thread)
                     manageConnectedSocket(socket);
-                    countDownTimer.cancel();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            countDownTimer.cancel();
+                            emptyTv.setText("已连接到客户端");
+                        }
+                    });
                     cancel();
                 }
             }

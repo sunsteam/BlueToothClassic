@@ -45,6 +45,7 @@ public class ConnectActivity extends AppCompatActivity {
         connectListView.setAdapter(connectAdapter);
 
         initData();
+        DialogUtils.createProgressDialog(this,"正在连接","连接设备",false);
     }
 
     private void initData() {
@@ -60,6 +61,7 @@ public class ConnectActivity extends AppCompatActivity {
     }
 
     private void manageConnectedSocket(BluetoothSocket mmSocket) {
+        DialogUtils.hideProgressDialog();
         connectedThread = new ConnectedThread(mmSocket);
         connectedThread.start();
     }
@@ -186,5 +188,6 @@ public class ConnectActivity extends AppCompatActivity {
         if (connectedThread != null) {
             connectedThread.cancel();
         }
+        DialogUtils.hideProgressDialog();
     }
 }
